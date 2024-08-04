@@ -1,0 +1,14 @@
+<div>
+  <h2>{{ quizId ? 'Edit Quiz' : 'Create Quiz' }}</h2>
+  <form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+      <mat-error *ngIf="quizForm.get('title')?.hasError('required')">Title is required</mat-error>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" type="submit">{{ quizId ? 'Update' : 'Create' }}</button>
+    <button mat-button color="warn" (click)="router.navigate(['/quizzes'])">Cancel</button>
+  </form>
+</div>

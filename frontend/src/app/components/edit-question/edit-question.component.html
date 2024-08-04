@@ -1,0 +1,47 @@
+<form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field appearance="fill">
+    <mat-label for="questionId">Question ID</mat-label>
+    <input matInput type="text" id="questionId" formControlName="questionId" readonly>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label class="m-left" for="questionText">Question Text</mat-label>
+    <input matInput id="questionText" formControlName="questionText">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label class="m-left" for="option1">Option 1</mat-label>
+    <input matInput id="option1" formControlName="option1" value="">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label class="m-left" for="option2">Option 2</mat-label>
+    <input matInput id="option2" formControlName="option2">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label class="m-left" for="option3">Option 3</mat-label>
+    <input matInput id="option3" formControlName="option3">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label class="m-left" for="option4">Option 4</mat-label>
+    <input matInput id="option4" formControlName="option4">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label class="m-left" for="correctAnswer">Correct Answer</mat-label>
+    <input matInput id="correctAnswer" formControlName="correctAnswer">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label class="m-left" for="quizId">Quiz ID</mat-label>
+    <input matInput type="text" id="quizId" formControlName="quizId" readonly>
+  </mat-form-field>
+
+
+  <button mat-raised-button color="primary" type="submit">Update Question</button>
+  <button mat-raised-button color="warn" type="button" (click)="onCancel()">Cancel</button>
+</form>

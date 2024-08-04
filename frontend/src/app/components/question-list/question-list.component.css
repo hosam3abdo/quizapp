@@ -1,0 +1,46 @@
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+.header-cell {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  padding: 10px;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.option-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.option-list li {
+  margin-bottom: 5px;
+}
+
+.action-cell {
+  padding: 0 4px;
+  text-align: center; /* Reduced padding even further */
+}
+
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 8px; /* Reduced gap between buttons */
+}
+
+.table-row {
+  height: 50px;
+}
+
+.add-button-container {
+  margin-top: 20px;
+  text-align: right;
+}

@@ -1,0 +1,23 @@
+<div class="quiz-container" [dir]="'dir'|translate">
+  <h2 class="quiz-title">{{'quizinfo.Quiz' |translate}} {{'quizinfo.'+ quizId |translate}}</h2>
+  <form [formGroup]="examForm" (ngSubmit)="onSubmit()" class="quiz-form">
+    <div formArrayName="responses" class="quiz-questions">
+      <div *ngFor="let response of getResponsesFormArray().controls; let i = index" [formGroupName]="i" class="quiz-question">
+        <mat-card class="question-card">
+          <mat-card-header>
+            <mat-card-title class="question-title">{{'quizinfo.'+ questions[i].questionText | translate }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-radio-group formControlName="response" class="answer-options">
+              <mat-radio-button [value]="'option_1'" class="answer-option">{{'quizinfo.'+ questions[i].option1 | translate }}</mat-radio-button>
+              <mat-radio-button [value]="'option_2'" class="answer-option">{{'quizinfo.'+ questions[i].option2 | translate }}</mat-radio-button>
+              <mat-radio-button [value]="'option_3'" class="answer-option">{{'quizinfo.'+ questions[i].option3 | translate }}</mat-radio-button>
+              <mat-radio-button [value]="'option_4'" class="answer-option">{{'quizinfo.'+ questions[i].option4 | translate }}</mat-radio-button>
+            </mat-radio-group>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!examForm.valid" class="submit-button">{{'quizinfo.Submit' | translate}}</button>
+  </form>
+</div>

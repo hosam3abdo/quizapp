@@ -1,0 +1,57 @@
+<form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Question Text</mat-label>
+    <input matInput formControlName="questionText" required>
+    <mat-error *ngIf="questionForm.get('questionText')?.hasError('required')">
+      Question Text is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Option 1</mat-label>
+    <input matInput formControlName="option1" required>
+    <mat-error *ngIf="questionForm.get('option1')?.hasError('required')">
+      Option 1 is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Option 2</mat-label>
+    <input matInput formControlName="option2" required>
+    <mat-error *ngIf="questionForm.get('option2')?.hasError('required')">
+      Option 2 is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Option 3</mat-label>
+    <input matInput formControlName="option3" required>
+    <mat-error *ngIf="questionForm.get('option3')?.hasError('required')">
+      Option 3 is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Option 4</mat-label>
+    <input matInput formControlName="option4" required>
+    <mat-error *ngIf="questionForm.get('option4')?.hasError('required')">
+      Option 4 is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Correct Answer</mat-label>
+    <input matInput formControlName="correctAnswer" required>
+    <mat-error *ngIf="questionForm.get('correctAnswer')?.hasError('required') ">
+      Correct Answer is required
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label for="quizId">Quiz ID</mat-label>
+    <input matInput type="text" id="quizId" formControlName="quizId" readonly>
+
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!questionForm.valid">Submit</button>
+  <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+</form>

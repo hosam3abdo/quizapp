@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="header">
+    <button mat-raised-button color="primary" [routerLink]="['/quizzes']">
+      <mat-icon>arrow_back</mat-icon>
+      Return to Dashboard
+    </button>
+  </div>
+
+  <div class="filter-section">
+    <h2>Filter Results</h2>
+    <form (ngSubmit)="onSubmit()" class="filter-form">
+      <mat-form-field appearance="outline">
+        <mat-label>User ID</mat-label>
+        <input matInput type="number" name="userId" [(ngModel)]="userId" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Quiz ID</mat-label>
+        <input matInput type="number" name="quizId" [(ngModel)]="quizId" required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">
+        <mat-icon>filter_alt</mat-icon>
+        Filter Results
+      </button>
+    </form>
+  </div>
+
+  <div class="results-section" *ngIf="results.length > 0">
+    <h2>Results for Quiz ID: {{ quizId }} and User ID: {{ userId }}</h2>
+
+    <table mat-table [dataSource]="results" class="mat-elevation-z8">
+      <ng-container matColumnDef="resultId">
+        <th mat-header-cell *matHeaderCellDef> Result ID </th>
+        <td mat-cell *matCellDef="let result"> {{ result.id }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quizId">
+        <th mat-header-cell *matHeaderCellDef> Quiz ID </th>
+        <td mat-cell *matCellDef="let result"> {{ quizId }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="userId">
+        <th mat-header-cell *matHeaderCellDef> User ID </th>
+        <td mat-cell *matCellDef="let result"> {{ userId }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="score">
+        <th mat-header-cell *matHeaderCellDef> Score </th>
+        <td mat-cell *matCellDef="let result"> {{ result.score }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ResultActions">
+        <th mat-header-cell *matHeaderCellDef> ResultActions </th>
+        <td mat-cell *matCellDef="let result">
+          <button mat-raised-button color="primary" [routerLink]="['/result',result.id]">
+            <mat-icon>visibility</mat-icon>
+            Show Answers
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <div class="no-results" *ngIf="results.length === 0">
+    <p>No results found.</p>
+  </div>
+</div>

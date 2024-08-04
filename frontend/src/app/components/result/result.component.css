@@ -1,0 +1,41 @@
+.container {
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.filter-section {
+  background-color: #f5f5f5;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mat-form-field {
+  flex: 1;
+}
+
+.results-section {
+  margin-top: 24px;
+}
+
+.mat-table {
+  width: 100%;
+}
+
+.no-results {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 18px;
+  color: #666;
+}
